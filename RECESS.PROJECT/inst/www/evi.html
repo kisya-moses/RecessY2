@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <!-- Include order: first jquery, then opencpu.js, and then your code -->
+  <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
+      <!-- include bootstrap.css -->
+      <link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <script src="js/pace.js"></script>
+          <link href="css/center-circle.css" type="text/css" rel="stylesheet" />
+            <script>
+            //init this script when the page has loaded
+          $(document).ready(function(){
+              var req = $("#plotdiv").rplot("InterVsEvent", {})
+              console.log(req)
+              // if R returns an error, alert
+              // USER
+              req.fail(function(){
+                alert("Server error: " + req.responseText + "");
+              });
+          });
+          </script>
+            <style>
+            #plotdiv {
+            position: relative;
+            width: 90%;
+          height: 500px;
+          padding: 5px;
+          border-radius: 3px;
+          margin-left: 30px;
+          }
+</style>
+  </head>
+  <body>
+  <div class="h4">
+    <h3 class="text-center">Event type Vs Interactions</h3>
+  </div>
+  <div id="plotdiv"></div>
+            </body>
+            </html>

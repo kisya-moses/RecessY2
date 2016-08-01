@@ -1,0 +1,19 @@
+# load dataset
+# ALL PLOTS USING GGPLOT package
+# R web server
+library(opencpu)
+#opencpu$start(8055)
+library(ggplot2)
+#read dataset
+dataset <- read.csv("~/R projects/Recess/dataset1.csv")
+# create data frames from dataset
+plotfn <- function(){
+  # Total fatality vs years = fatality rate
+  data.fatality <- aggregate(dataset$FATALITIES ~ dataset$YEAR, FUN = sum)
+  #barplot(data.fatality$`dataset$FATALITIES`)
+  # plot fatality against year
+  bar = data.frame(fatality = data.fatality$`dataset$FATALITIES` , year = data.fatality$`dataset$YEAR`)
+  plot.1 <- ggplot(bar, aes(year,fatality)) + geom_bar(stat = "identity")
+  plot.1
+  print(plot.1)
+}

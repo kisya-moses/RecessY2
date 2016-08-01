@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Interaction vs Region</title>
+  <!-- Include order: first jquery, then opencpu.js, and then your code -->
+  <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
+      <!-- include bootstrap.css -->
+      <link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <script src="js/pace.js"></script>
+          <link href="css/center-circle.css" type="text/css" rel="stylesheet" />
+            <script>
+            $(document).ready(function(){
+              //call the plotFPR fn
+              var req = $("#plotdiv").rplot("plotIPR", {})
+              console.log(req)
+              // if R returns an error, alert
+              // USER
+              req.fail(function(){
+                alert("Server error: " + req.responseText + "");
+              });
+            });
+          </script>
+            <h4 class="text-center">Interaction VS Region</h4>
+              <div id="plotdiv" style="position: relative;width: 900px;height:500px;
+              padding: 5px; border-radius: 3px; margin-left: 30px;"></div>
+                </body>
+                </html>

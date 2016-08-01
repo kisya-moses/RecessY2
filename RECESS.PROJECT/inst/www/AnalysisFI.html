@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <!-- Include order: first jquery, then opencpu.js, and then your code -->
+  <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
+      <!-- include bootstrap.css -->
+      <link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <script>
+        paceOptions = {
+          initialRate: 0.1,
+          minTime: 2500,
+          maxProgressPerframe: 1,
+          ghostTime: 1200,
+          elements: true,
+          restartOnRequestAfter: false,
+          elements: {
+            checkInterval: 5,
+            selectors: '#plotdiv'
+          }
+        };
+        </script>
+        <script src="js/pace.js"></script>
+          <link href="css/center-circle.css" type="text/css" rel="stylesheet" />
+            <script>
+            //init this script when the page has loaded
+          $(document).ready(function(){
+            $("#submitBtn").click(function(event){
+              event.preventDefault();
+              var yr = $("#year").val();
+              var req = $("#plotdiv").rplot("AnalysisFY", {
+                yr
+              })
+              console.log(req)
+            // if R returns an error, alert
+            // USER
+            req.fail(function(){
+              alert("Server error: " + req.responseText + "");
+            });
+              $(function(){
+                e.preventDefault();
+                var btn = $(this).attr("disabled", "disabled");
+                var req = ocpu.call("AnalysisSummary", {
+                year : $("#year").val(),
+              }, function(session){
+                  $("#Asummary").html(session.getFileURL("Analysis_summary.html"));
+              }).fail(function(text){
+              alert("Summary Error: " + req.responseText);
+              }).always(function(){
+                btn.removeAttr("disabled");
+              });
+            });
+          });
+          });
+          </script>
+            <style>
+            #plotdiv {
+            position: relative;
+          width: 90%;
+          height: 500px;
+          padding: 5px;
+          border-radius: 3px;
+          margin-left: 30px;
+          }
+</style>
+  </head>
+  <body>
+  <div class="h4">
+    <h3 class="text-center">Analysis of FATALITY and INTERACTIONS</h3>
+  </div>
+  <div>
+    Summary Information
+  </div>
+    <b>Select Year</b>
+      <select id="year" class="form-control">
+          <option>1997</option>
+          <option>1998</option>
+          <option>1999</option>
+          <option>2000</option>
+          <option>2001</option>
+          <option>2002</option>
+          <option>2003</option>
+          <option>2004</option>
+          <option>2005</option>
+          <option>2006</option>
+          <option>2007</option>
+          <option>2008</option>
+          <option>2009</option>
+          <option>2010</option>
+          <option>2011</option>
+          <option>2012</option>
+          <option>2013</option>
+          <option>2014</option>
+      </select>
+    <button id="submitBtn" type="button" class="btn btn-xs btn-primary">Get Analysis</button>
+      <div id="plotdiv"></div>
+      <div id="Asummary">
+      </div>
+        </body>
+        </html>

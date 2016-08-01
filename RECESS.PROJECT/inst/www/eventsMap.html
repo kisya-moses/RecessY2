@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Events Map per region</title>
+  <!-- Include order: first jquery, then opencpu.js, and then your code -->
+  <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
+      <!-- include bootstrap.css -->
+      <link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <script src="js/pace.js"></script>
+          <link href="css/center-circle.css" type="text/css" rel="stylesheet" />
+          <script>
+            $(function(){
+              $("#mapsubmit").click(function(e){
+                var reg = $("#region").val()
+                $("#Tregion").html(reg)
+                e.preventDefault();
+                var btn = $(this).attr("disabled", "disabled");
+                var req = ocpu.call("eventsMap", {
+                region : $("#region").val(),
+              }, function(session){
+            $("iframe").attr('src', session.getFileURL("region_Map.html"));
+          }).fail(function(text){
+          alert("Error: " + req.responseText);
+          }).always(function(){
+            btn.removeAttr("disabled");
+          });
+        });
+        console.log(req)
+      });
+       </script>
+       <style>
+          body {
+            margin: 0;
+            overflow: hidden;
+          }
+
+          iframe {
+            border: 0;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: -999;
+          }
+       </style>
+  </head>
+  <body>
+    <h3 class="text-center"><span id="Tregion"></span> Region (UG) 1997 - 2014</h3>
+    <h5 class="text-center">Each Marker shows the location of particular incident</h5>
+  <div class="container">
+    <div class="col-sm-3">
+      <form>
+        <div class="form-group">
+          <label>Region</label>
+        <select id="region" class="form-control">
+        <option>Acholi</option>
+        <option>Elgon</option>
+        <option>Central 1</option>
+        <option>Central 2</option>
+        <option>East Central</option>
+        <option>Karamoja</option>
+        <option>South Western</option>
+        <option>West Nile</option>
+        <option>Teso</option>
+        <option>Lango</option>
+        <option>Western</option>
+        </select>
+        </div>
+        <button type="submit" id="mapsubmit" class="btn btn-default">Update Map!</button>
+      </form>
+    </div>
+  </div>
+<iframe src="about:blank"></iframe>
+  </body>
+</html>
