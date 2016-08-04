@@ -1,8 +1,7 @@
 
 #' MAP SHOWING LOCATIONS
 #'
-#' @param lat = the latitude of the location
-#' @param lon = the longitude of the lovcation
+#' @param region = the REGION to view on map
 #'
 #' @author kisya moses.
 #'

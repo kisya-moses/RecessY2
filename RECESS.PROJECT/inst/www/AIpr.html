@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Fatality vs Year</title>
+  <!-- Include order: first jquery, then opencpu.js, and then your code -->
+  <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <!-- include bootstrap.css -->
+    <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+      <script src="bootstrap/js/bootstrap.js"></script>
+        <script src="opencpu/opencpu-0.4.js"></script>
+          <script>
+          //init this script when the page has loaded
+          $(document).ready(function(){
+          //read the value for 'myname'
+          var fromYear = 1;
+          var toYear = 18;
+          //create the plot area on the plotdiv element
+          var req = $("#plotdiv").rplot("plotFPR", {
+          })
+          req.fail(function(){
+            alert("Server error: " + req.responseText);
+          });
+          //perform the request for average Interactions
+          var req = ocpu.rpc("AIPR", {}, function(output){
+            $("#AVGI").html(output.message);
+          });
+        });
+        </script>
+        <style>
+        #plotdiv {
+        width: 90%;
+        height: 500px;
+        padding: 5px;
+        border-radius: 3px;
+        margin-left: 30px;
+        }
+        </style>
+  </head>
+  <body>
+    <div>
+    <h3 class="text-center">Interactions Vs REGION (1997 - 2014)</h3>
+      <div id="plotdiv"></div>
+      <div class="login-panel panel panel-danger" style="margin-top: -5px;">
+        <div class = "panel-heading">
+          <div class="panel-title h3">Comments</div>
+        </div>
+        <div class="panel-body">
+          <span id="AVGI"></span>
+        </div>
+        </div>
+          <script src="bootstrap/js/bootstrap.js"></script>
+    </div>
+  </body>
+</html>

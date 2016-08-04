@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>AIPD</title>
+  <!-- Include order: first jquery, then opencpu.js, and then your code -->
+  <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <!-- include bootstrap.css -->
+    <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+      <script src="bootstrap/js/bootstrap.js"></script>
+        <script src="opencpu/opencpu-0.4.js"></script>
+          <script>
+          //init this script when the page has loaded
+          $(document).ready(function(){
+            $("#submitbutton").click(function(event){
+              event.preventDefault()
+              //read the value for 'myname'
+              var fromYear = 1;
+              var toYear = 18;
+              //create the plot area on the plotdiv element
+              var req = $("#plotdiv").rplot("plotIPD", {
+                region : $("#region").val()
+              })
+              req.fail(function(){
+                alert("Server error: " + req.responseText);
+              });
+            //perform the request for average Interactions
+            var req = ocpu.rpc("AIPD", {
+              region : $("#region").val()
+            }, function(output){
+              $("#AVGI").removeClass().html(output.message);
+            });
+
+            });
+          });
+        </script>
+        <style>
+        #plotdiv {
+        width: 90%;
+        height: 500px;
+        padding: 5px;
+        border-radius: 3px;
+        margin-left: 30px;
+        }
+        </style>
+  </head>
+  <body>
+    <div>
+      <h3>Region</h3>
+      <select id="region" class="form-control" style="width:10em;position:relative">
+        <option>Acholi</option>
+        <option>Elgon</option>
+        <option>Central 1</option>
+        <option>Central 2</option>
+        <option>East Central</option>
+        <option>Karamoja</option>
+        <option>South Western</option>
+        <option>West Nile</option>
+        <option>Teso</option>
+        <option>Lango</option>
+        <option>Western</option>
+      </select>
+      <button id="submitbutton" type="button" class="btn btn-sm btn-default">get Analysis</button>
+    <h3 class="text-center">Fatality Vs District (1997 - 2014)</h3>
+      <div id="plotdiv"></div>
+      <div class="login-panel panel panel-danger" style="margin-top: -5px;">
+        <div class = "panel-heading">
+          <div class="panel-title h3">Summary information</div>
+        </div>
+        <div class="panel-body">
+          <span id="AVGI"></span>
+        </div>
+        </div>
+          <script src="bootstrap/js/bootstrap.js"></script>
+    </div>
+  </body>
+</html>

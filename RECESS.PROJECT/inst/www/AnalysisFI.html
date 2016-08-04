@@ -6,22 +6,6 @@
     <script src="opencpu/opencpu-0.4.js"></script>
       <!-- include bootstrap.css -->
       <link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet" />
-        <script>
-        paceOptions = {
-          initialRate: 0.1,
-          minTime: 2500,
-          maxProgressPerframe: 1,
-          ghostTime: 1200,
-          elements: true,
-          restartOnRequestAfter: false,
-          elements: {
-            checkInterval: 5,
-            selectors: '#plotdiv'
-          }
-        };
-        </script>
-        <script src="js/pace.js"></script>
-          <link href="css/center-circle.css" type="text/css" rel="stylesheet" />
             <script>
             //init this script when the page has loaded
           $(document).ready(function(){
@@ -37,19 +21,14 @@
             req.fail(function(){
               alert("Server error: " + req.responseText + "");
             });
-              $(function(){
-                e.preventDefault();
-                var btn = $(this).attr("disabled", "disabled");
-                var req = ocpu.call("AnalysisSummary", {
-                year : $("#year").val(),
-              }, function(session){
-                  $("#Asummary").html(session.getFileURL("Analysis_summary.html"));
-              }).fail(function(text){
-              alert("Summary Error: " + req.responseText);
-              }).always(function(){
-                btn.removeAttr("disabled");
-              });
+
+            var req = ocpu.rpc("AFIFY", {
+              year: $("#year").val()
+            },
+            function(output){
+              $("#AVGI").html(output.message);
             });
+            console.log(req)
           });
           });
           </script>
@@ -69,10 +48,8 @@
     <h3 class="text-center">Analysis of FATALITY and INTERACTIONS</h3>
   </div>
   <div>
-    Summary Information
-  </div>
-    <b>Select Year</b>
-      <select id="year" class="form-control">
+    <h3>Select Year</h3>
+      <select id="year" class="form-control" style="width:10em;position:relative">
           <option>1997</option>
           <option>1998</option>
           <option>1999</option>
@@ -92,9 +69,17 @@
           <option>2013</option>
           <option>2014</option>
       </select>
-    <button id="submitBtn" type="button" class="btn btn-xs btn-primary">Get Analysis</button>
+      <button id="submitBtn" type="button" class="btn btn-sm btn-default">Get Analysis</button>
+    </div>
+       <i class="text-info text-center">Gray bars indicate interactions while the colored bars indicate fatality</i>
       <div id="plotdiv"></div>
-      <div id="Asummary">
-      </div>
+      <div class="login-panel panel panel-danger" style="margin-top: -5px;">
+        <div class = "panel-heading">
+            <div class="panel-title h3">Summary Information</div>
+        </div>
+        <div class="panel-body">
+            <span id="AVGI"></span>
+        </div>
+    </div>
         </body>
         </html>

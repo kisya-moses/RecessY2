@@ -19,10 +19,10 @@
                 </a>
                 <ul class="nav nav-second-level collapse" aria-expanded="false">
                     <li>
-                        <a href="#A-FPY" data-value="A-FPY" data-toggle="tab">Total Fatality and Interactions vs Year</a>
+                        <a href="#A-FIPY" data-value="A-FPY" data-toggle="tab">Total Fatality and Interactions vs Year</a>
                     </li>
                     <li>
-                        <a href="#A-FPR" data-value="FPR" data-toggle="tab">Fatality vs Region</a>
+                        <a href="#A-FPY" data-value="FPY" data-toggle="tab">Fatality vs Year</a>
                     </li>
                     <li>
                         <a href="#A-IPR" data-value="IPR" data-toggle="tab">Interactions vs Region</a>
@@ -41,10 +41,17 @@
     <!-- /.sidebar-collapse -->
 </div>
 <div id="page-wrapper" class="tab-content">
-    <div class="tab-pane" data-value="A-FPY" id="A-FPY">
+    <div class="tab-pane" data-value="A-FIPY" id="A-FIPY">
         <object class="text-center" type="text/html" 
                 data="http://localhost:81/ocpu/library/RECESS.PROJECT/www/AnalysisFI.html"
                 width="100%" height="800" >
         </object>                    
     </div>
+    <div class="tab-pane" data-value="A-FPY" id="A-FPY">
+        <object class="text-center" type="text/html" 
+                data="http://localhost:81/ocpu/library/RECESS.PROJECT/www/Afpy.html"
+                width="100%" height="800" >
+        </object>                    
+    </div>
+
 </div>
