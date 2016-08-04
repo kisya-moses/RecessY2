@@ -28,7 +28,6 @@ $str = "ACLED data analysis system | " . $title;
         <script src="<?php echo site_url(); ?>js/opencpu-0.4.js"></script>
         <script src="<?php echo site_url(); ?>js/metisMenu.js"></script>
         <script src="<?php echo site_url(); ?>js/sb-admin-2.js"></script>        
-
         <link href="<?php echo site_url(); ?>css/sb-admin-2.css" rel="stylesheet" type="text/css" />
         <!-- flexslider.js for slideshow on home page-->
         <script src="<?php echo site_url(); ?>js/jquery.flexslider.js"></script>
@@ -70,7 +69,6 @@ $str = "ACLED data analysis system | " . $title;
                     activeRequests++;
                 }
             });
-
         </script>
         <script src="<?php echo site_url(); ?>js/pace.js"></script>
         <!-- pace.css -->

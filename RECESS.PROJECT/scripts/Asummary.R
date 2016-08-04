@@ -22,8 +22,6 @@ AnalysisSummary <- function(year = 1997){
                 "HIGHEST TOTAL FATALITIES::", min(bars$INTERACTIONS),
                 "\n LOWEST TOTAL FATALITIES::", min(bars$FATALITY)
   )
-
-  MEAN <- htmltools::code(MEAN)
   MEAN
 }
 AnalysisSummary(1999)
