@@ -7,8 +7,8 @@ it was made by contibution from Group 58 that consisted of 4 members
       3) muwesi patrick daniel
       4) kisya moses
 >>INSTALLATION and USAGE
- 1 copy the dataset1.csv file to Documents folder in windows
-      linux users copy dataset1.csv to ~/
+ 1. copy the dataset1.csv file to Documents folder in windows
+      linux users copy dataset1.csv to `~/`
  2. download and install RStudio from `http://www.r-studio.com/` for your platform
  3. open `/RECESS.PROJECT/RECESS.PROJECT.Rproj` using RStudio
  4. build the RECESS.PROJECT package by pressing `ctrl+shif+B`
