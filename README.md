@@ -1,11 +1,12 @@
 # RecessY2
 
 This Code and Documents are for Recess project for 2016 Year 2
+
 It was made by contibution from Group 58 that consisted of 4 members
-      * 1) lyada felix
-      * 2) ssenyonjo edrine
-      * 3) muwesi patrick daniel
-      * 4) kisya moses
+      1. lyada felix
+      2. ssenyonjo edrine
+      3. muwesi patrick daniel
+      4. kisya moses
 	  
 ##INSTALLATION and USAGE
 1. copy the dataset1.csv file to Documents folder in windows, linux users copy dataset1.csv to `~/`
