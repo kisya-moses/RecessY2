@@ -1,6 +1,7 @@
 # RecessY2
 
 This Code and Documents are for Recess project for 2016 Year 2
+the project blog is [https://group58blog.wordpress.com/]
 
 It was made by contibution from Group 58 that consisted of 4 members
       1. lyada felix
