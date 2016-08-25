@@ -1,15 +1,13 @@
 # RecessY2
-<======================>
-This Code and Documents are for Recess project for 2016 Year 2.\n
-it was made by contibution from Group 58 that consisted of 4 members\n
-      1) lyada felix\n
-      2) ssenyonjo edrine\n
-      3) muwesi patrick daniel\n
-      4) kisya moses\n
 
-<=======================>
- <u>INSTALLATION and USAGE</u>
- 1. copy the dataset1.csv file to Documents folder in windows
+This Code and Documents are for Recess project for 2016 Year 2
+it was made by contibution from Group 58 that consisted of 4 members
+      1) lyada felix
+      2) ssenyonjo edrine
+      3) muwesi patrick daniel
+      4) kisya moses
+>>INSTALLATION and USAGE
+ 1 copy the dataset1.csv file to Documents folder in windows
       linux users copy dataset1.csv to ~/
  2. download and install RStudio from `http://www.r-studio.com/` for your platform
  3. open `/RECESS.PROJECT/RECESS.PROJECT.Rproj` using RStudio
