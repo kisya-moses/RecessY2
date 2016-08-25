@@ -86,7 +86,7 @@ class Users extends CI_Controller {
                 $this->session->set_userdata('user_id', $user_id);
                 $this->session->set_userdata('username', $this->input->post('username'));
                 $this->session->set_userdata('user_type', $this->input->post('user_type'));
-                redirect(base_url() . 'index.php/blog');
+                redirect(base_url());
             }
         }
         $class_name = array(

@@ -12,13 +12,8 @@
     <script>
     //init this script when the page has loaded
     $(document).ready(function(){
-      //read the value for 'myname'
-        var fromYear = 1;
-        var toYear = 18;
         //create the plot area on the plotdiv element
         var req = $("#plotdiv").rplot("plotFPY", {
-          fromYear,
-          toYear
         })
         req.fail(function(){
           alert("Server error: " + req.responseText);

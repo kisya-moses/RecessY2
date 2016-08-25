@@ -8,7 +8,7 @@
         <div class="panel-heading">
             <h3 class="panel-title">Login
                 <span style="float:right">
-                    <a href="<?php echo site_url(); ?>index.php/signup">Create Account</a></span>
+                    <a href="<?php echo site_url(); ?>signup">Create Account</a></span>
             </h3>                
         </div>
         <div class="panel-body loginPage">
@@ -18,7 +18,7 @@
              * To change this template file, choose Tools | Templates
              * and open the template in the editor.
              */
-            echo form_open("index.php/users/login");
+            echo form_open("users/login");
             ?>
             <fieldset>
                 <div class="form-group">

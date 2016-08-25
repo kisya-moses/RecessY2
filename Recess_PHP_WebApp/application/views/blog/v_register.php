@@ -1,25 +1,22 @@
 <?php
 if ($error) {
     ?>
-    <div class="error">
-        <div class="warning text-danger text-center bg-danger">
-            <i class="fa fa-warning"></i>
-            <?php
-            echo ucwords($error);
-            ?>
-        </div>
-    </div>
+    <h4 id="main" style="position: absolute; margin: 2em 2em 2em 25em;">
+        <center><code><?php echo ucwords($error); ?></code></center>
+    </h4>
     <?php
 }
 ?>
-<div style="margin: 10em;"></div>
+<div class="text-center" style="margin: 1em;">
+    <h2>ACLED Data Analysis System</h2>
+</div>
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
         <div class="login-panel panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Create Account
                     <span style="float:right">
-                        <a href="<?php echo site_url();?>index.php/login">Login</a></span>
+                        <a href="<?php echo site_url(); ?>login">Login</a></span>
                 </h3>                
             </div>
             <div class="panel-body loginPage">
@@ -29,7 +26,7 @@ if ($error) {
                  * To change this template file, choose Tools | Templates
                  * and open the template in the editor.
                  */
-                echo form_open("index.php/users/register");
+                echo form_open("users/register");
                 ?>
                 <fieldset>
                     <div class="form-group">
@@ -105,3 +102,6 @@ if ($error) {
         </div>
     </div>
 </div>
+<script>
+    $("#main").fadeOut(8000);
+</script>

@@ -15,11 +15,11 @@
                 <li class="<?php echo $home; ?>">
                     <a class="fa fa-home" href="<?php echo site_url(); ?>"> Home </a>
                 </li>
-                <li class="<?php echo $visualization; ?>">
-                    <a class="fa fa-area-chart" href="<?php echo site_url(); ?>visualization" > Visualization </a>
-                </li>
                 <li class="<?php echo $analysis; ?>">
                     <a class="fa fa-calculator" href="<?php echo site_url(); ?>analysis"> Analysis </a>
+                </li>
+                <li class="<?php echo $visualization; ?>">
+                    <a class="fa fa-area-chart" href="<?php echo site_url(); ?>visualization" > Visualization </a>
                 </li>
                 <li class="<?php echo $blog; ?>">
                     <a href="<?php echo site_url(); ?>blog"> Blog </a>

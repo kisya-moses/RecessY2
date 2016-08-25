@@ -54,7 +54,7 @@ class Blog extends CI_Controller
     {
         if(!$this->check_permissions('author'))//when the user is not an andmin and author
         {
-            redirect(base_url().'index.php/users/login');
+            redirect(base_url().'users/login');
         }
         if($this->input->post())
         {
@@ -64,7 +64,7 @@ class Blog extends CI_Controller
                 'active' => 1,
             );
             $this->m_db->insert_post($data);
-            redirect(base_url().'index.php/blog');
+            redirect(base_url());
         }
         else{
         $class_name = array(
@@ -117,10 +117,10 @@ class Blog extends CI_Controller
     {
         if(!$this->check_permissions('author'))//when the user is not an andmin and author
         {
-            redirect(base_url().'index.php/users/login');
+            redirect(base_url().'users/login');
         }
         $this->m_db->delete_post($post_id);
-        redirect(base_url().'index.php/blog');
+        redirect(base_url().'blog');
     }
     
     function check_permissions($required)//checking current user's permission

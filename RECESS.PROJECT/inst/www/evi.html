@@ -11,17 +11,27 @@
             <script>
             //init this script when the page has loaded
           $(document).ready(function(){
-              var req = $("#plotdiv").rplot("InterVsEvent", {})
-              console.log(req)
+              var req1 = $("#plotdiv1").rplot("InterVsEventR", {})
+              console.log(req1)
               // if R returns an error, alert
               // USER
-              req.fail(function(){
-                alert("Server error: " + req.responseText + "");
+              req1.fail(function(){
+                alert("Server error: " + req1.responseText + "");
+              });
+              var req2 = $("#plotdiv2").rplot("InterVsEventY", {})
+              console.log(req2)
+              // if R returns an error, alert
+              // USER
+              req2.fail(function(){
+                alert("Server error: " + req2.responseText + "");
+              });
+              var req = ocpu.rpc("AEVI", {}, function(output){
+                $("#AVGI").html(output.message);
               });
           });
           </script>
             <style>
-            #plotdiv {
+            #plotdiv1, #plotdiv2{
             position: relative;
             width: 90%;
           height: 500px;
@@ -35,6 +45,15 @@
   <div class="h4">
     <h3 class="text-center">Event type Vs Interactions</h3>
   </div>
-  <div id="plotdiv"></div>
-            </body>
-            </html>
+  <div id="plotdiv1"></div>
+  <div id="plotdiv2"></div>
+  <div class="login-panel panel panel-danger" style="margin-top: -5px;">
+    <div class = "panel-heading">
+      <div class="panel-title h3">Comments</div>
+    </div>
+    <div class="panel-body">
+        <span id="AVGI"></span>
+    </div>
+  </div>
+</body>
+</html>
